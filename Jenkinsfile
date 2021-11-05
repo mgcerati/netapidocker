@@ -17,7 +17,7 @@ node {
       if(env.BRANCH_NAME == 'master'){
         sh 'docker build -t dockerapi --no-cache .'
         sh 'docker tag dockerapi localhost:4000/dockerapi'
-        sh 'docker push localhost:4000'
+        sh 'docker push localhost:4000/dockerapi'
         sh 'docker rmi -f dockerapi localhost:4000/dockerapi'
         sh 'docker pull localhost:4000/dockerapi'
         sh 'docker rm -f dockerapi'
