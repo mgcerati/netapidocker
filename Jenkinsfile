@@ -16,12 +16,12 @@ node {
     stage('Deploy'){
       if(env.BRANCH_NAME == 'master'){
         sh 'docker build -t dockerapi --no-cache .'
-        sh 'docker tag dockerapi localhost:4000/dockerapi'
-        sh 'docker push localhost:4000/dockerapi'
-        sh 'docker rmi -f dockerapi localhost:4000/dockerapi'
-        sh 'docker pull localhost:4000/dockerapi'
+        sh 'docker tag dockerapi localhost:5000/dockerapi'
+        sh 'docker push localhost:5000/dockerapi'
+        sh 'docker rmi -f dockerapi localhost:5000/dockerapi'
+        sh 'docker pull localhost:5000/dockerapi'
         sh 'docker rm -f dockerapi'
-        sh 'docker run -d -p 4000:80 --name dockerapi localhost:4000/dockerapi:latest'
+        sh 'docker run -d -p 5000:80 dockerapi'
       }
     }
   }
