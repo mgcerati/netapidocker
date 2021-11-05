@@ -16,7 +16,7 @@ node {
     stage('Deploy'){
       if(env.BRANCH_NAME == 'master'){
         sh 'docker build -t mgcerati/dockerapi --no-cache .'
-        sh 'docker run -p 8888:80 mgcerati/dockerapi'
+        sh 'docker run -p 5000:80 mgcerati/dockerapi'
 
       }
     }
