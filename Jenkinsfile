@@ -15,8 +15,8 @@ node {
     */
     stage('Deploy'){
       if(env.BRANCH_NAME == 'master'){
-        sh 'docker build -t mgcerati/dockerapi --no-cache .'
-        sh 'docker tag mgcerati/dockerapi localhost:5000/mgcerati/dockerapi'
+        /*sh 'docker build -t mgcerati/dockerapi --no-cache .'
+        sh 'docker tag mgcerati/dockerapi localhost:5000/mgcerati/dockerapi'*/
         sh 'docker push localhost:5000/mgcerati/dockerapi'
         sh 'docker rmi -f mgcerati/dockerapi localhost:5000/mgcerati/dockerapi'
       }
